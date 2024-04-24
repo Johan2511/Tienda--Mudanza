@@ -15,7 +15,7 @@ const NavBar = () => {
         { label: "inicio", href: "/" },
         { label: "servicios", href: "/my-service" },
         { label: "nosotros", href: "/AboutUs" },
-        { label: "contacto", href: "#" },
+        { label: "contacto", href: "/ContactUs" },
     ];
 
     return (
@@ -31,21 +31,23 @@ const NavBar = () => {
                         </Link>
                     ))}
                 </div>
-                <div className={clsx(
+                <div className='relative'>
+                    <div className={clsx(
                     "fixed h-full w-screen lg:hidden bg-black/50 backdrop-blur-sm top-0 right-0 transition-all",
                     {"translate-x-full": !menuOpen, "translate-x-0": menuOpen}
-                )}>
-                    <section className="text-black bg-white flex-col absolute left-0 top-0 h-screen p-8 gap-8 z-50 w-56 flex">
-                        <IoClose
-                            onClick={toggleMenu}
-                            className="mt-0 mb-8 text-3xl cursor-pointer"
-                        />
-                        {navLinks.map((data, i) => (
-                            <a key={i} className="font-bold" href={data.href}>
-                                {data.label}
-                            </a>
-                        ))}
-                    </section>
+                    )}>
+                        <section className="text-black bg-white flex-col absolute left-0 top-0 h-screen p-8 gap-8 z-50 w-56 flex">
+                            <IoClose
+                                onClick={toggleMenu}
+                                className="mt-0 mb-8 text-3xl cursor-pointer"
+                            />
+                            {navLinks.map((data, i) => (
+                                <a key={i} className="font-bold" href={data.href}>
+                                    {data.label}
+                                </a>
+                            ))}
+                        </section>
+                    </div>
                 </div>
                 <div className="flex justify-center gap-4">
                     <a href="#" className="text-gray-400 hover:text-black"><FaFacebook size={24} /></a>

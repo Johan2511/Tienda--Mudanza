@@ -1,20 +1,14 @@
 import Navbar from "../../components/Navbar/Navbar"
 import Header from "../../components/Header/Header"
-import HeroSection from "../../components/Hero/Hero"
-import GallerySection from "../../components/Gallery/Gallery"
-import Testimonials from "../../components/Testimonial/Testimonials"
 // import Map from "../../components/Map/Map"
 import ContactSection from "../../components/ContactSection/ContactSection"
 import Footer from "../../components/Footer/Footer"
 
-const Home = () => {
+const Contact = () => {
     return (
         <div>
             <Header />
             <Navbar />
-            <HeroSection />
-            <GallerySection />
-            <Testimonials />
             <ContactSection />
             {/* <Map /> */}
             <Footer />
@@ -22,4 +16,4 @@ const Home = () => {
     ) 
 }
 
-export default Home
+export default Contact
