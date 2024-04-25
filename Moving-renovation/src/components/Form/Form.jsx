@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css'; 
 
 const Form = () => {
-  // Estado para controlar qué campos del formulario se muestran
+  const [selectedDate, setSelectedDate] = useState(null);
+
+  const [datePickerOpen, setDatePickerOpen] = useState(false);
+  
   const [step, setStep] = useState(1);
-  // Estado para controlar los valores de los campos del formulario
+  
   const [formValues, setFormValues] = useState({
     movingFrom: '',
     movingTo: '',
@@ -14,18 +19,18 @@ const Form = () => {
     phoneNumber: '',
     referralSource: ''
   });
-  // Estado para controlar los errores de validación
+  
   const [errors, setErrors] = useState({});
 
-  // Función para cambiar al siguiente paso del formulario
+  
   const nextStep = () => {
-    // Validar los campos antes de pasar al siguiente paso
+    
     if (validateFields()) {
       setStep(step + 1);
     }
   };
 
-  // Función para validar los campos del formulario
+  
   const validateFields = () => {
     const { movingFrom, movingTo, moveDate, description, name, email, phoneNumber } = formValues;
     const errors = {};
@@ -53,7 +58,7 @@ const Form = () => {
     }
 
     setErrors(errors);
-    return Object.keys(errors).length === 0; // Retorna true si no hay errores
+    return Object.keys(errors).length === 0; 
   };
 
   // Función para manejar cambios en los campos del formulario
@@ -63,6 +68,15 @@ const Form = () => {
       ...formValues,
       [name]: value
     });
+  };
+
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+    setFormValues({
+      ...formValues,
+      moveDate: date.toISOString().split('T')[0] 
+    });
+    setDatePickerOpen(false); 
   };
 
   // Función para renderizar los campos del formulario según el paso actual
@@ -98,8 +112,19 @@ const Form = () => {
                 onChange={handleInputChange}
                 placeholder="Move Date"
                 className={`block w-full mb-2 p-2 border border-gray-300 rounded ${errors.moveDate ? 'border-red-500' : 'text-black'}`}
+                readOnly
+                onClick={() => setDatePickerOpen(true)}
               />
-              {errors.moveDate && <p className="text-sm text-red-500 mb-2">{errors.moveDate}</p>}
+              {datePickerOpen && (
+                  <DatePicker
+                    selected={selectedDate}
+                    onChange={handleDateChange}
+                    dateFormat="yyyy-MM-dd"
+                    className="block w-full p-2 border border-gray-300 rounded bg-white shadow"
+                    inline // Muestra el calendario inline
+                    onBlur={() => setDatePickerOpen(false)}
+                  />
+              )}
               <textarea
                 name="description"
                 value={formValues.description}
@@ -108,8 +133,8 @@ const Form = () => {
                 className="block w-full mb-2 p-2 border border-gray-300 rounded text-black"
               />
             </div>
-            <p className="text-sm text-gray-500 mb-4">By continuing, you agree to our Terms and Conditions.</p>
-            <button onClick={nextStep} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Continue</button>
+            <p className="text-sm text-black mb-4">By continuing, you agree to our Terms and Conditions.</p>
+            <button onClick={nextStep} className="bg-orange-400 text-white px-4 py-2 rounded hover:bg-blue-600">Continue</button>
           </>
         );
       case 2:
