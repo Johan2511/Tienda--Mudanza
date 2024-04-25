@@ -1,26 +1,32 @@
 import React from 'react';
-import HeroImg from '../../assets/Moving_renovation_Hero.png'
+import PropTypes from 'prop-types';
 import Button from '../ButtonCall/ButtonCall';
+import Form from '../Form/Form';
 
-const HeroSection = () => {
+const HeroSection = ({backgroundImage, title, paragraph, buttonText, buttonLink}) => {
   return (
-    <section className="text-white body-font bg-cover bg-center" style={{backgroundImage: `url(${HeroImg})`, height:'500px'}}>
-      
-      <div className="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-        <div className="lg:flex-grow md:w-1/2 lg:pl-24 md:pl-16 flex flex-col md:items-start md:text-left items-center text-center">
-          <h1 className="title-font sm:text-5xl text-4xl mb-4 font-medium text-white">Before they sold out
-            <br className="hidden lg:inline-block" />readymade gluten
-          </h1>
-          <p className="mb-8 leading-relaxed font-semibold">Copper mug try-hard pitchfork pour-over freegan heirloom neutra air plant cold-pressed tacos poke beard tote bag. Heirloom echo park mlkshk tote bag selvage hot chicken authentic tumeric truffaut hexagon try-hard chambray.</p>
-          <div className="flex justify-center items-center">
-            
-          <Button link="tel:6789733935" text="Call Us Now At 678-973-3935" />
-            
-          </div>
+    <section className="text-white body-font bg-cover bg-center" style={{backgroundImage: `url(${backgroundImage})`, height:'auto'}}>
+      <div className="container mx-auto px-5 py-24 lg:flex lg:flex-row flex-col items-center justify-start"> {/* Ajuste de clase flex */}
+        <div className="lg:w-1/2 md:w-full w-full lg:pl-24 md:pl-16 flex flex-col md:items-start items-start text-left mb-16 lg:mb-0">
+          <h1 className="title-font sm:text-4xl lg:text-5xl text-3xl mb-4 font-bold text-orange-600" style={{textStroke: '1px black', WebkitTextStroke: '1.5px black'}} >{title}</h1>
+          <p className="mb-6 leading-relaxed font-semibold text-base">{paragraph}</p>
+          <Button link={buttonLink} text={buttonText} />
+        </div>
+        <div className="lg:w-1/2 lg:justify-end">
+          <Form />
         </div>
       </div>
     </section>
   );
 };
 
+HeroSection.propTypes = {
+  backgroundImage: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  paragraph: PropTypes.string.isRequired,
+  buttonText: PropTypes.string.isRequired,
+  buttonLink: PropTypes.string.isRequired
+};
+
 export default HeroSection;
+

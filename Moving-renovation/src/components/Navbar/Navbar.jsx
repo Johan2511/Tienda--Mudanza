@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { IoMenu, IoClose } from "react-icons/io5";
-import { FaFacebook, FaInstagram, FaLinkedin, FaGoogle } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import SocialMedia from '../SocialMedia/SocialMedia';
 import clsx from "clsx";
 
 const NavBar = () => {
@@ -12,10 +12,10 @@ const NavBar = () => {
     };
 
     const navLinks = [
-        { label: "inicio", href: "/" },
-        { label: "servicios", href: "/my-service" },
-        { label: "nosotros", href: "/AboutUs" },
-        { label: "contacto", href: "/ContactUs" },
+        { label: "HOME", href: "/" },
+        { label: "OUR SERVICES", href: "/my-service" },
+        { label: "ABOUT US", href: "/AboutUs" },
+        { label: "CONTACT US", href: "/ContactUs" },
     ];
 
     return (
@@ -36,25 +36,20 @@ const NavBar = () => {
                     "fixed h-full w-screen lg:hidden bg-black/50 backdrop-blur-sm top-0 right-0 transition-all",
                     {"translate-x-full": !menuOpen, "translate-x-0": menuOpen}
                     )}>
-                        <section className="text-black bg-white flex-col absolute left-0 top-0 h-screen p-8 gap-8 z-50 w-56 flex">
+                        <section className="text-black bg-white flex-col absolute left-0 top-0 h-screen p-8 gap-8 z-50 w-64 flex">
                             <IoClose
                                 onClick={toggleMenu}
                                 className="mt-0 mb-8 text-3xl cursor-pointer"
                             />
                             {navLinks.map((data, i) => (
-                                <a key={i} className="font-bold" href={data.href}>
+                                <Link key={i} className="text-2xl text-orange-400 hover:text-orange-600" to={data.href}>
                                     {data.label}
-                                </a>
+                                </Link>
                             ))}
                         </section>
                     </div>
                 </div>
-                <div className="flex justify-center gap-4">
-                    <a href="#" className="text-gray-400 hover:text-black"><FaFacebook size={24} /></a>
-                    <a href="#" className="text-gray-400 hover:text-black"><FaInstagram size={24}/></a>
-                    <a href="#" className="text-gray-400 hover:text-black"><FaLinkedin size={24}/></a>
-                    <a href="#" className="text-gray-400 hover:text-black"><FaGoogle size={24}/></a>
-                </div>
+                <SocialMedia />
             </nav>
             <hr className="lg:mx-24" />
             
