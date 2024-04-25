@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { IoMenu, IoClose } from "react-icons/io5";
 import { Link } from 'react-router-dom';
 import SocialMedia from '../SocialMedia/SocialMedia';
@@ -6,6 +6,14 @@ import clsx from "clsx";
 
 const NavBar = () => {
     const [menuOpen, setMenuOpen] = useState(false);
+
+    useEffect(() => {
+        if (menuOpen) {
+            document.body.style.overflow = 'hidden'; 
+        } else {
+            document.body.style.overflow = ''; 
+        }
+    }, [menuOpen]);
 
     const toggleMenu = () => {
         setMenuOpen(prevState => !prevState);
@@ -20,7 +28,7 @@ const NavBar = () => {
 
     return (
         <main>
-            <nav className='flex justify-between px-6 items-center py-6 lg:px-24 bg-orange-400'>
+            <nav className={clsx('flex justify-between px-6 items-center py-6 lg:px-24 bg-orange-400', { 'z-50': menuOpen })}>
                 <div className="flex items-center gap-4">
                     <section className="flex items-start gap-4">
                         <IoMenu onClick={toggleMenu} className='text-5xl cursor-pointer lg:hidden' />
@@ -36,13 +44,13 @@ const NavBar = () => {
                     "fixed h-full w-screen lg:hidden bg-black/50 backdrop-blur-sm top-0 right-0 transition-all",
                     {"translate-x-full": !menuOpen, "translate-x-0": menuOpen}
                     )}>
-                        <section className="text-black bg-white flex-col absolute left-0 top-0 h-screen p-8 gap-8 z-50 w-64 flex">
+                        <section className="text-black bg-orange-400 flex-col absolute left-0 top-0 h-screen p-8 gap-8 z-50 w-64 flex">
                             <IoClose
                                 onClick={toggleMenu}
                                 className="mt-0 mb-8 text-3xl cursor-pointer"
                             />
                             {navLinks.map((data, i) => (
-                                <Link key={i} className="text-2xl text-orange-400 hover:text-orange-600" to={data.href}>
+                                <Link key={i} className="text-2xl text-white hover:text-gray-300" to={data.href}>
                                     {data.label}
                                 </Link>
                             ))}

@@ -24,7 +24,9 @@ const Map = () => {
     }
   }, []);
 
-  return <div id="mapid" style={{ width: '800px', height: '400px', zIndex:-1 }} />;
+  return <div 
+  id="mapid" 
+  style={{ width: '800px', height: '400px', zIndex: 0 }} />;
 };
 
 export default Map;
