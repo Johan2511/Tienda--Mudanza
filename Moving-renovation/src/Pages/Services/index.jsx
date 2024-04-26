@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar/Navbar"
 import Header from "../../components/Header/Header"
 import HeroSection from '../../components/Hero/Hero';
 import HeroImg from "../../assets/Moving_renovation_Hero.png"
+import Footer from '../../components/Footer/Footer';
 
 const Services = () => {
   return (
@@ -35,6 +36,7 @@ const Services = () => {
             </div>
         </div>
         </section>
+        <Footer />
     </div>
   );
 };

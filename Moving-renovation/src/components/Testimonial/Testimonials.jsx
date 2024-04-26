@@ -2,21 +2,35 @@ import React from 'react';
 
 const Testimonials = () => {
   return (
-    <section className="bg-gray-100 py-10">
-      <div className="container mx-auto text-center">
-        <h2 className="text-2xl font-semibold mb-4">Testimonios</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <p className="text-gray-700">¡Mudanzas Express hizo que mi mudanza fuera muy fácil y rápida!</p>
-            <p className="text-gray-500">- Juan Pérez</p>
+    <section className="text-gray-600 body-font">
+      <div className="container px-5 py-24 mx-auto">
+        <div className="flex flex-wrap -m-4">
+          <div className="lg:w-1/3 lg:mb-0 mb-6 p-4">
+            <div className="h-full text-center">
+              <img alt="testimonial" className="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100" src="https://dummyimage.com/302x302" />
+              <p className="leading-relaxed">Edison bulb retro cloud bread echo park, helvetica stumptown taiyaki taxidermy 90's cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
+              <span className="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"></span>
+              <h2 className="text-gray-900 font-medium title-font tracking-wider text-sm">HOLDEN CAULFIELD</h2>
+              <p className="text-gray-500">Senior Product Designer</p>
+            </div>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <p className="text-gray-700">Estoy muy contenta con el servicio, ¡altamente recomendado!</p>
-            <p className="text-gray-500">- María González</p>
+          <div className="lg:w-1/3 lg:mb-0 mb-6 p-4">
+            <div className="h-full text-center">
+              <img alt="testimonial" className="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100" src="https://dummyimage.com/300x300" />
+              <p className="leading-relaxed">Edison bulb retro cloud bread echo park, helvetica stumptown taiyaki taxidermy 90's cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
+              <span className="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"></span>
+              <h2 className="text-gray-900 font-medium title-font tracking-wider text-sm">ALPER KAMU</h2>
+              <p className="text-gray-500">UI Develeoper</p>
+            </div>
           </div>
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <p className="text-gray-700">Profesionales y cuidadosos con mis pertenencias, ¡gracias!</p>
-            <p className="text-gray-500">- Roberto Ramírez</p>
+          <div className="lg:w-1/3 lg:mb-0 p-4">
+            <div className="h-full text-center">
+              <img alt="testimonial" className="w-20 h-20 mb-8 object-cover object-center rounded-full inline-block border-2 border-gray-200 bg-gray-100" src="https://dummyimage.com/305x305" />
+              <p className="leading-relaxed">Edison bulb retro cloud bread echo park, helvetica stumptown taiyaki taxidermy 90's cronut +1 kinfolk. Single-origin coffee ennui shaman taiyaki vape DIY tote bag drinking vinegar cronut adaptogen squid fanny pack vaporware.</p>
+              <span className="inline-block h-1 w-10 rounded bg-indigo-500 mt-6 mb-4"></span>
+              <h2 className="text-gray-900 font-medium title-font tracking-wider text-sm">HENRY LETHAM</h2>
+              <p className="text-gray-500">CTO</p>
+            </div>
           </div>
         </div>
       </div>
@@ -25,3 +39,4 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
+

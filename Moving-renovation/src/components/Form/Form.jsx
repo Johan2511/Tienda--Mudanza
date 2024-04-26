@@ -1,30 +1,19 @@
 import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css'; 
+import useForm from './useForm';
+import sendFormData from './sendFormData'
 
 const Form = () => {
+  const { formValues, setFormValues, handleInputChange } = useForm();
   const [selectedDate, setSelectedDate] = useState(null);
-
   const [datePickerOpen, setDatePickerOpen] = useState(false);
-  
   const [step, setStep] = useState(1);
-  
-  const [formValues, setFormValues] = useState({
-    movingFrom: '',
-    movingTo: '',
-    moveDate: '',
-    description: '',
-    name: '',
-    email: '',
-    phoneNumber: '',
-    referralSource: ''
-  });
-  
   const [errors, setErrors] = useState({});
+  const [submitMessage, setSubmitMessage] = useState(null);
 
-  
+
   const nextStep = () => {
-    
     if (validateFields()) {
       setStep(step + 1);
     }
@@ -51,23 +40,18 @@ const Form = () => {
       }
       if (!email.trim()) {
         errors.email = 'Email is required';
+      } else if (!/\S+@\S+\.\S+/.test(email)) {
+        errors.email = 'Email is invalid';
       }
       if (!phoneNumber.trim()) {
         errors.phoneNumber = 'Phone Number is required';
+      } else if (!/^\d{10}$/.test(phoneNumber)) {
+        errors.phoneNumber = 'Phone Number is invalid';
       }
     }
 
     setErrors(errors);
     return Object.keys(errors).length === 0; 
-  };
-
-  // Función para manejar cambios en los campos del formulario
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormValues({
-      ...formValues,
-      [name]: value
-    });
   };
 
   const handleDateChange = (date) => {
@@ -79,13 +63,27 @@ const Form = () => {
     setDatePickerOpen(false); 
   };
 
+  const handleSubmit = async () => {
+    try {
+      const response = await sendFormData(formValues);
+      if (response.success) {
+        setSubmitMessage("¡El formulario se envió correctamente!");
+      } else {
+        setSubmitMessage("Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo.");
+      }
+    } catch (error) {
+      setSubmitMessage("Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo.");
+    }
+  };
+  
+
   // Función para renderizar los campos del formulario según el paso actual
   const renderFormFields = () => {
     switch (step) {
       case 1:
         return (
           <>
-            <h2 className="text-lg font-semibold mb-4">Moving Details</h2>
+            <h2 className="text-lg font-semibold mb-4 text-center">Get your moving quote for free</h2>
             <div className="form-fields">
               <input
                 type="text"
@@ -134,13 +132,13 @@ const Form = () => {
               />
             </div>
             <p className="text-sm text-black mb-4">By continuing, you agree to our Terms and Conditions.</p>
-            <button onClick={nextStep} className="bg-orange-400 text-white px-4 py-2 rounded hover:bg-blue-600">Continue</button>
+            <button onClick={nextStep} className="bg-orange-400 text-white px-4 py-2 rounded hover:bg-orange-500">Continue</button>
           </>
         );
       case 2:
         return (
           <>
-            <h2 className="text-lg font-semibold mb-4">Contact Information</h2>
+            <h2 className="text-lg font-semibold mb-4 text-center">Get your moving quote for free</h2>
             <div className="form-fields">
               <input
                 type="text"
@@ -179,7 +177,7 @@ const Form = () => {
               />
             </div>
             <p className="text-sm text-gray-500 mb-4">By continuing, you agree to our Terms and Conditions.</p>
-            <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Submit</button>
+            <button onClick={handleSubmit} className="bg-orange-400 text-white px-4 py-2 rounded hover:bg-orange-500">Submit</button>
           </>
         );
       default:
@@ -188,9 +186,15 @@ const Form = () => {
   };
 
   return (
-    <div className="max-w-md mx-auto p-4 border border-gray-300 rounded-lg shadow flex justify-center">
+    <div className="max-w-md mx-auto p-4 border border-gray-300 rounded-lg shadow flex justify-center bg-gray-100">
       <div className="form-container">
         {renderFormFields()}
+
+        {submitMessage && (
+        <div className={`text-sm p-2 ${submitMessage.includes('error') ? 'text-red-500' : 'text-green-500'}`}>
+          {submitMessage}
+        </div>
+          )}
       </div>
     </div>
   );

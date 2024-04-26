@@ -4,19 +4,12 @@ import SocialMedia from '../SocialMedia/SocialMedia';
 
 const Footer = () => {
 
-  const categories = [
-    { title: "First Category", links: ["First Link", "Second Link", "Third Link", "Fourth Link"] },
-    { title: "Second Category", links: ["First Link", "Second Link", "Third Link", "Fourth Link"] },
-    { title: "Third Category", links: ["First Link", "Second Link", "Third Link", "Fourth Link"] },
-    { title: "Fourth Category", links: ["First Link", "Second Link", "Third Link", "Fourth Link"] }
-  ]
-
-  const socialColors = {
-    facebookColor: '#106bff',
-    instagramColor: '#e1306c',
-    linkedinColor: '#0077b5',
-    googleColor: '#db4437'
-  };
+  const pages = [
+    { title: "Home", path: "/" },
+    { title: "Our Services", path: "/my-service" },
+    { title: "About Us", path: "/AboutUs" },
+    { title: "Contact Us", path: "/ContactUs" }
+  ];
 
   return (
     <div className='bg-gray-900'>
@@ -34,17 +27,15 @@ const Footer = () => {
           </div>
           <div className="flex-grow flex flex-wrap md:pr-20 -mb-10 md:text-left text-center order-first">
             
-            {/* Iterar sobre el array de categorías */}
-            {categories.map((category, index) => (
+            {/* Iterar sobre el array de páginas */}
+            {pages.map((page, index) => (
               <div key={index} className="lg:w-1/4 md:w-1/2 w-full px-4">
-                <h2 className="title-font font-medium text-gray-100 tracking-widest text-sm mb-3">{category.title}</h2>
+                <h2 className="title-font font-medium text-gray-100 tracking-widest text-sm mb-3">{page.title}</h2>
                 <nav className="list-none mb-10">
-                  {/* Iterar sobre los links de cada categoría */}
-                  {category.links.map((link, index) => (
-                    <li key={index}>
-                      <Link className="text-gray-200 hover:text-gray-200">{link}</Link>
-                    </li>
-                  ))}
+                  {/* Renderizar el enlace a la página */}
+                  <li>
+                    <Link to={page.path} className="text-gray-200 hover:text-gray-200">{page.title}</Link>
+                  </li>
                 </nav>
               </div>
             ))}
