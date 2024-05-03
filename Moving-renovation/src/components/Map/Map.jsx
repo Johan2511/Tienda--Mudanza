@@ -8,7 +8,7 @@ const Map = () => {
   useEffect(() => {
     if (!mapRef.current) {
       // Crea una instancia del mapa y asigna el ID del contenedor del mapa
-      const map = L.map('mapid').setView([4.7068738, -74.1221922],25);
+      const map = L.map('mapid').setView([33.9256381, -84.1276978],25);
 
       // Añade una capa de mapa base (por ejemplo, OpenStreetMap)
       L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -16,7 +16,7 @@ const Map = () => {
       }).addTo(map);
 
       // Añade un marcador
-      L.marker([4.7067992, -74.1247584]).addTo(map)
+      L.marker([33.9256381, -84.1276978]).addTo(map)
         .bindPopup('Moving_Renovation')
         .openPopup();
 

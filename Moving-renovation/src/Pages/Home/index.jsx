@@ -6,6 +6,7 @@ import Testimonials from "../../components/Testimonial/Testimonials"
 import ContactSection from "../../components/ContactSection/ContactSection"
 import Footer from "../../components/Footer/Footer"
 import HeroImg from "../../assets/Moving_renovation_Hero.png"
+import HeroI from "../../assets/Hero.jpg"
 
 const Home = () => {
     return (
@@ -13,7 +14,7 @@ const Home = () => {
             <Header />
             <Navbar />
             <HeroSection
-            backgroundImage={HeroImg}
+            backgroundImage={HeroI}
             title="Atlanta's Spotless Moving Company"
             paragraph="We take maintaining our reputation very seriously by ensuring that all our customers enjoy a smooth and hassle-free moving process, and you can trust that our team will work tirelessly to ensure it is completed with the utmost professionalism."
             buttonText="Call Us Now At 678-973-3935"

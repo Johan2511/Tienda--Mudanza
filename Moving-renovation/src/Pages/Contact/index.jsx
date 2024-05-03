@@ -2,6 +2,7 @@ import Navbar from "../../components/Navbar/Navbar"
 import Header from "../../components/Header/Header"
 import HeroSection from "../../components/Hero/Hero"
 import ContactSection from "../../components/ContactSection/ContactSection"
+import Testimonials from "../../components/Testimonial/Testimonials"
 import Footer from "../../components/Footer/Footer"
 import HeroImg from "../../assets/Moving_renovation_Hero.png"
 
@@ -18,7 +19,7 @@ const Contact = () => {
             buttonLink="tel:6789733935"
             />
             <ContactSection />
-            {/* <Map /> */}
+            <Testimonials />
             <Footer />
         </div>
     ) 
