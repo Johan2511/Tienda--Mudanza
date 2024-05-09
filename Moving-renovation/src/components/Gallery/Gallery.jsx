@@ -1,4 +1,7 @@
 import React from 'react';
+import nosotrosimg from '../../assets/nosotros.webp';
+import nosotros2img from '../../assets/nosotros2.webp';
+import nosotros3img from '../../assets/nosotros3.webp';
 
 const GallerySection = () => {
   return (
@@ -13,31 +16,37 @@ const GallerySection = () => {
           {/* You can map over your image data here to generate gallery items */}
           <div className="lg:w-1/3 sm:w-1/2 p-4">
             <div className="flex flex-col h-full border-4 border-gray-200 bg-white">
-              <img alt="gallery" className="w-full h-full object-cover object-center" src="https://dummyimage.com/600x360" />
+              <picture>
+                <source srcSet={nosotrosimg} type='nosotros/webp' />
+                <img alt="gallery" className="w-full h-full object-cover object-center" src={nosotrosimg} />
+              </picture>
               <div className="p-8">
-                <h2 className="tracking-widest text-sm title-font font-medium text-yellow-500 mb-1">THE SUBTITLE</h2>
-                <h1 className="title-font text-lg font-medium text-gray-900 mb-3">Shooting Stars</h1>
-                <p className="leading-relaxed">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+                <h2 className="tracking-widest text-sm title-font font-medium text-yellow-500 mb-1">CUSTOMER SERVICE</h2>
+                <p className="leading-relaxed">Our main goal is to provide you with a stress-free journey. We guarantee that our movers will do everything in their power to complete your move quickly and efficiently.</p>
               </div>
             </div>
           </div>
           <div className="lg:w-1/3 sm:w-1/2 p-4">
             <div className="flex flex-col h-full border-4 border-gray-200 bg-white">
-              <img alt="gallery" className="w-full h-full object-cover object-center" src="https://dummyimage.com/600x360" />
+              <picture>
+                <source srcSet={nosotros2img} type='nosotros2/webp' />
+                <img alt="gallery" className="w-full h-full object-cover object-center" src={nosotros2img} />
+              </picture>
               <div className="p-8">
-                <h2 className="tracking-widest text-sm title-font font-medium text-yellow-500 mb-1">THE SUBTITLE</h2>
-                <h1 className="title-font text-lg font-medium text-gray-900 mb-3">Shooting Stars</h1>
-                <p className="leading-relaxed">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+                <h2 className="tracking-widest text-sm title-font font-medium text-yellow-500 mb-1">PAYMENT</h2>
+                <p className="leading-relaxed">You only pay for the minutes our moving helpers work. This means that you will not be required to pay on the day of your move. There are no hidden costs.</p>
               </div>
             </div>
           </div>
           <div className="lg:w-1/3 sm:w-1/2 p-4">
             <div className="flex flex-col h-full border-4 border-gray-200 bg-white">
-              <img alt="gallery" className="w-full h-full object-cover object-center" src="https://dummyimage.com/600x360" />
+              <picture>
+                <source srcSet={nosotros3img} type='nosotros3/webp' />
+                <img alt="gallery" className="w-full h-full object-cover object-center" src={nosotros3img} />
+              </picture>
               <div className="p-8">
-                <h2 className="tracking-widest text-sm title-font font-medium text-yellow-500 mb-1">THE SUBTITLE</h2>
-                <h1 className="title-font text-lg font-medium text-gray-900 mb-3">Shooting Stars</h1>
-                <p className="leading-relaxed">Photo booth fam kinfolk cold-pressed sriracha leggings jianbing microdosing tousled waistcoat.</p>
+                <h2 className="tracking-widest text-sm title-font font-medium text-yellow-500 mb-1">COMMUNICATION</h2>
+                <p className="leading-relaxed">We send confirmation messages via text and email to verify your moving time, moving date, and hourly rates. Additionally, we'll give you a call when the crew is on its way.</p>
               </div>
             </div>
           </div>

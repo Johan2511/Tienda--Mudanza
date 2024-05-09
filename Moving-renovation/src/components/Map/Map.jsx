@@ -16,9 +16,14 @@ const Map = () => {
       }).addTo(map);
 
       // Añade un marcador
-      L.marker([33.9256381, -84.1276978]).addTo(map)
+      const marker = L.marker([33.9256381, -84.1276978]).addTo(map)
         .bindPopup('Moving_Renovation')
         .openPopup();
+
+        // Agrega un evento de clic al marcador para abrir Google Maps en una nueva pestaña
+      marker.on('click', () => {
+        window.open('https://www.google.com/maps?q=33.9256381,-84.1276978', '_blank');
+      });
 
       mapRef.current = map;
     }
