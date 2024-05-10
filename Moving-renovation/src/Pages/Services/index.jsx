@@ -5,6 +5,7 @@ import HeroSection from '../../components/Hero/Hero';
 import HeroImg from "../../assets/Moving_renovation_Hero.png"
 import Service from '../../components/Service/Service';
 import Footer from '../../components/Footer/Footer';
+import Testimonials from '../../components/Testimonial/Testimonials';
 
 const Services = () => {
   return (
@@ -19,6 +20,7 @@ const Services = () => {
         buttonLink="tel:6789733935" 
         />
         <Service />
+        <Testimonials />
         <Footer />
     </div>
   );

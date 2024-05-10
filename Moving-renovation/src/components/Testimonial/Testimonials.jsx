@@ -42,7 +42,7 @@ const Testimonials = () => {
   };
   return (
     <section className="text-gray-600 body-font">
-      <h2 className="text-3xl text-center font-medium mb-12">Testimonials</h2>
+      <h2 className="text-6xl text-orange-500 text-center font-extrabold mb-12">TESTIMONIALS</h2>
       <div className="container px-5 py-24 mx-auto">
         <Slider {...settings}>
               

@@ -6,16 +6,15 @@ import Logo from '../Logo/Logo';
 const Footer = () => {
 
   const pages = [
-    { title: "Home", path: "/" },
     { title: "Our Services", path: "/my-service" },
     { title: "About Us", path: "/AboutUs" },
     { title: "Contact Us", path: "/ContactUs" }
   ];
 
   return (
-    <div className='bg-gray-900'>
+    <div className='bg-orange-500'>
       <footer className="text-gray-400 body-font">
-        <div className="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
+        <div className="container px-5 py-12 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
           <div className="w-64 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
             <Link to={"/"} className="flex title-font font-medium items-center justify-center text-gray-900">
               <Logo/>

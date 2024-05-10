@@ -9,7 +9,7 @@ const servicesData = [
   {
     title: 'Residential Moving',
     description: 'Servicio de mudanza residencial.',
-    slug: 'residential-moving',
+    slug: '/my-service/residential',
     icon: PiHouseLineDuotone
   },
   {
@@ -54,15 +54,15 @@ const Service = () => {
   return (
     <section className="py-10">
       <div className="container mx-auto text-center">
-        <h2 className="text-2xl font-semibold mb-4">Our Services</h2>
+        <h2 className="lg:text-6xl text-4xl text-orange-400 font-semibold mb-4">OUR SERVICE</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {servicesData.map(service => (
-            <Link key={service.slug} to={`/services/${service.slug}`}>
+            <Link key={service.slug} to={`${service.slug}`}>
               <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
-                <service.icon className="text-4xl text-gray-500 mr-2" style={{ color: 'orange' }} />
+                <service.icon className="text-6xl text-gray-500 mr-2" style={{ color: 'orange' }} />
                 <div>
-                  <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                  <p className="text-gray-700">{service.description}</p>
+                  <h3 className="text-3xl font-semibold mb-2">{service.title}</h3>
+                  <p className="text-1xl text-gray-700">{service.description}</p>
                 </div>
               </div>
             </Link>
