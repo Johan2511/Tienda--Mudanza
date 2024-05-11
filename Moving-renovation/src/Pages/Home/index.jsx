@@ -4,6 +4,7 @@ import HeroSection from "../../components/Hero/Hero"
 import GallerySection from "../../components/Gallery/Gallery"
 import Testimonials from "../../components/Testimonial/Testimonials"
 import ContactSection from "../../components/ContactSection/ContactSection"
+import LocationList from '../../components/LocationList/LocationList'
 import Information from "../../components/Information/Information"
 import Footer from "../../components/Footer/Footer"
 import HeroImg from "../../assets/Moving_renovation_Hero.png"
@@ -12,6 +13,25 @@ import MovingVideo from "../../assets/Moving_Renovation_video.mp4"
 import Service from "../../components/Service/Service"
 
 const Home = () => {
+
+    const locations = [
+        'Atlanta, GA',
+        'Buckhead, GA',
+        'Brookhaven, GA',
+        'Chamblee, GA',
+        'Fayetteville, GA',
+        'Sandy Springs, GA',
+        'Norcross, GA',
+        'Duluth, GA',
+        'Roswell, GA',
+        'Marietta, GA',
+        'Alpharetta, GA',
+        'Kennesaw, GA',
+        'Vinings, GA',
+        'Johns Creek, GA',
+        'Peachtree City, GA',
+        'Newnan, GA'
+      ];
     return (
         <div>
             <Header />
@@ -34,7 +54,14 @@ const Home = () => {
             mediaType="video" />
             <Service />
             <Testimonials />
-            <ContactSection />
+            <ContactSection>
+                <LocationList
+                locations={locations}
+                title="AREAS WE SERVE"
+                description="WE SERVICE THE ENTIRE STATE OF GEORGIA"
+                />
+            </ContactSection>
+                
             <Footer />
         </div>
     ) 
