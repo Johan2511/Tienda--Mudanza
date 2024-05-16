@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useRoutes, BrowserRouter, useLocation } from 'react-router-dom'
 import './App.css'
+import Layout from '../../components/Layout/Layout.jsx';
 import Home from '../Home/index.jsx';
 import Servicios from '../Services/index.jsx';
 import Residential from '../Services/residential.jsx';
@@ -39,8 +40,10 @@ const  App = () => {
 
   return (
       <BrowserRouter>
-      <ScrollToTop />
-      <AppRoutes />
+      <Layout>
+        <ScrollToTop />
+        <AppRoutes />
+      </Layout>
       </BrowserRouter>
   )
 }

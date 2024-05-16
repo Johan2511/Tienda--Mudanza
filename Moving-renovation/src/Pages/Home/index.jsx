@@ -11,6 +11,7 @@ import HeroImg from "../../assets/Moving_renovation_Hero.png"
 import HeroI from "../../assets/Hero.jpg"
 import MovingVideo from "../../assets/Moving_Renovation_video.mp4"
 import Service from "../../components/Service/Service"
+import WhatsAppButton from "../../components/WhatsAppButton/WhatsAppButton"
 
 const Home = () => {
 
@@ -61,6 +62,7 @@ const Home = () => {
                 description="WE SERVICE THE ENTIRE STATE OF GEORGIA"
                 />
             </ContactSection>
+            <WhatsAppButton phoneNumber="+1234567890" message="¡Hola! ¿Cómo puedo ayudarte?" />
                 
             <Footer />
         </div>

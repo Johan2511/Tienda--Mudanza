@@ -2,10 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../ButtonCall/ButtonCall';
 import Form from '../Form/Form';
+import ContactForm from '../Form/Form2';
 
 const HeroSection = ({backgroundImage, title, paragraph, buttonText, buttonLink}) => {
   return (
-    <section className="body-font bg-cover bg-center relative" style={{backgroundImage: `url(${backgroundImage})`, height:'950px'}}>
+    <section className="body-font bg-cover bg-center relative" style={{backgroundImage: `url(${backgroundImage})`, height:'auto'}}>
       <div className="absolute inset-0 bg-black opacity-35"></div> {/* Superposición semitransparente */}
       <div className="container mx-auto px-5 py-24 lg:flex lg:flex-row flex-col items-center justify-start relative z-10"> {/* Ajuste de clase flex y z-index */}
         <div className="lg:w-1/2 md:w-full w-full lg:pl-24 md:pl-16 flex flex-col md:items-start items-start text-left mb-16 lg:mb-0">
@@ -14,7 +15,8 @@ const HeroSection = ({backgroundImage, title, paragraph, buttonText, buttonLink}
           <Button link={buttonLink} text={buttonText} />
         </div>
         <div className="lg:w-1/2 lg:justify-end">
-          <Form />
+          {/* <Form /> */}
+          < ContactForm />
         </div>
       </div>
     </section>

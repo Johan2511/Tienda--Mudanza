@@ -8,43 +8,43 @@ import { FaBoxesPacking } from "react-icons/fa6";
 const servicesData = [
   {
     title: 'Residential Moving',
-    description: 'Servicio de mudanza residencial.',
+    description: 'Residential moving service.',
     slug: '/my-service/residential',
     icon: PiHouseLineDuotone
   },
   {
     title: 'Apartment Moving',
-    description: 'Servicio de mudanza de apartamentos.',
+    description: 'Apartment moving service.',
     slug: 'apartment-moving',
     icon: PiBuildingApartmentDuotone
   },
   {
     title: 'Commercial Moving',
-    description: 'Servicio de mudanza comercial.',
+    description: 'Commercial moving service.',
     slug: 'commercial-moving',
     icon: RiTruckLine
   },
   {
     title: 'Long Distance Moving',
-    description: 'Servicio de mudanza de larga distancia.',
+    description: 'Long-distance moving service.',
     slug: 'long-distance-moving',
     icon: FaMapMarkedAlt
   },
   {
     title: 'Furniture Assembly Moving',
-    description: 'Servicio de montaje de muebles y mudanzas.',
+    description: 'Furniture assembly and moving service.',
     slug: 'furniture-assembly-moving',
     icon: PiArmchair
   },
   {
     title: 'Item Loading',
-    description: 'Servicio de carga de artículos.',
+    description: 'Loading service.',
     slug: 'item-loading',
     icon: FaTruckLoading
   },
   {
     title: 'Packing / Unpacking',
-    description: 'Servicio de embalaje y desembalaje.',
+    description: 'Packing and unpacking service.',
     slug: 'packing-unpacking',
     icon: FaBoxesPacking
   }
